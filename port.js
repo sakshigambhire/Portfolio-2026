@@ -1,34 +1,12 @@
-const words = ["Coder", "UI/UX Designer", "Programmer"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typing = document.getElementById("typing");
+var typed = new Typed("#typing", {
+  strings: ["Web Developer", "UI/UX Designer", "Programmer"],
+  typeSpeed: 100,
+  backSpeed: 100,
+  backDelay: 1000,
+  loop: true
+});
 
-function typeEffect() {
-  let current = words[wordIndex];
 
-  if (!isDeleting) {
-    typing.textContent = current.substring(0, charIndex + 1);
-    charIndex++;
-  } else {
-    typing.textContent = current.substring(0, charIndex - 1);
-    charIndex--;
-  }
-
-  if (charIndex === current.length + 1) {
-    isDeleting = true;
-    setTimeout(()=>{},1000);
-  }
-
-  if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-  }
-
-  setTimeout(typeEffect, 120);
-}
-
-typeEffect();
 const about = document.querySelector(".about-section");
 
 window.addEventListener("scroll", () => {
@@ -88,5 +66,16 @@ window.addEventListener("scroll", ()=>{
   if(pos < screen){
     contact.style.opacity = "1";
     contact.style.transform = "translateY(0)";
+  }
+});
+const cert = document.querySelector(".cert-section");
+
+window.addEventListener("scroll", ()=>{
+  const pos = cert.getBoundingClientRect().top;
+  const screen = window.innerHeight / 1.2;
+
+  if(pos < screen){
+    cert.style.opacity = "1";
+    cert.style.transform = "translateY(0)";
   }
 });

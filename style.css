@@ -20,7 +20,7 @@ body{
 
   position:sticky;
   top:0;
-  z-index:1000;
+  z-index:100;
 }
 
 
@@ -125,6 +125,11 @@ body{
   color:red;
   animation:blink 1s infinite;
 }
+.typed-cursor{
+  color: red;
+  font-weight: bold;
+}
+
 
 @keyframes blink{
   0%,50%,100%{opacity:1;}
@@ -396,9 +401,10 @@ html{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:80px;
+  padding:50px 80px;   /* reduced top & bottom */
   background:#fff;
 }
+
 
 .resume-title{
   font-size:36px;
@@ -412,7 +418,7 @@ html{
 .resume-btn{
   display:inline-block;
   font-size:18px;
-  color:#2a4bff;
+  color:red;
   text-decoration:none;
   font-weight:600;
 }
@@ -422,7 +428,7 @@ html{
 }
 
 .resume-img{
-  width:320px;
+  width:260px;
 }
 .resume-section{
   opacity:0;
@@ -500,4 +506,52 @@ html{
   text-decoration:none;
   text-align:center;
   color: black;
+}
+/* CERTIFICATIONS */
+.cert-section{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px;
+  background:#fff;
+}
+
+.cert-title{
+  font-size:36px;
+}
+
+.cert-quote{
+  margin:15px 0 30px;
+  color:#666;
+  font-style:italic;
+}
+
+.cert-btn{
+  font-size:18px;
+  color:#ff2f2f;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.cert-btn:hover{
+  text-decoration:underline;
+}
+
+.cert-img{
+  width:280px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
+  100%{ transform:translateY(0); }
+}
+
+/* Scroll animation */
+.cert-section{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
 }
